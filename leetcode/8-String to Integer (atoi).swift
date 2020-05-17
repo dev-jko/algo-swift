@@ -14,11 +14,13 @@ class Solution {
         let zero: Int = Int(Character("0").asciiValue!)
         while i < str.count && str[i].isNumber {
             result = result * 10 + Int(str[i].asciiValue!) - zero
+            if result > Int32.max {
+                if sign > 0 { return Int(Int32.max) }
+                else if result > Int(Int32.max) + 1 { return Int(Int32.min) }
+            }
             i += 1
         }
         result *= sign
-        if result > Int32.max { return Int(Int32.max) }
-        if result < Int32.min { return Int(Int32.min) }
         return result
     }
 }

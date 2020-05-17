@@ -4,7 +4,7 @@ class Solution {
         for j in 0..<nums.count {
             if nums[j] != val {
                 nums[i] = nums[j]
-                i += 1                
+                i += 1
             }
         }
         return i
